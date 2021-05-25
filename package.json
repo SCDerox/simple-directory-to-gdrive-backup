@@ -1,0 +1,20 @@
+{
+  "name": "simple-directory-to-gdrive-backup",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "SCDerox",
+  "license": "WTFPL",
+  "dependencies": {
+    "adm-zip": "^0.5.5",
+    "cryptify": "^4.1.2",
+    "drive-upload": "^1.0.4",
+    "googleapis": "^39.2.0",
+    "node-schedule": "^2.0.0",
+    "readline": "^1.3.0"
+  }
+}
