@@ -50,12 +50,6 @@ exports.store = (srcFile, destFile, callback) => {
                         if (err) {
                             console.error(err);
                         } else {
-                            const trans = options.permissions.role === 'owner';
-                            drive.permissions.create({
-                                fileId: file.data.id,
-                                requestBody: options.permissions,
-                                transferOwnership: trans
-                            });
                             drive.files.get({
                                 fileId: file.data.id,
                                 fields: 'id,name,mimeType,parents,webContentLink,webViewLink,thumbnailLink,createdTime,size,imageMediaMetadata'
