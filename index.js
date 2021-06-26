@@ -22,7 +22,11 @@ async function backup() {
     return new Promise((async resolve => {
         for (const command of config.runCommandsBeforeExecution) {
             console.log(`Running ${command}`);
-            await execSync(command)
+            try {
+                await execSync(command)
+            } catch (e) {
+                console.warn(`Error executing ${command}`)
+            }
             console.log(`Finished running ${command}`)
         }
         const zip = new Zip();
