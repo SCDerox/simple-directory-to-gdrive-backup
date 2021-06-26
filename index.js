@@ -3,6 +3,7 @@ const Zip = require('adm-zip');
 const config = require('./config.json');
 const Cryptify = require('cryptify');
 const schedule = require('node-schedule');
+const execSync = require('child_process').execSync;
 
 if (config.enabledHourlyUpload) {
     schedule.scheduleJob('1 * * * *', function () {
@@ -19,6 +20,11 @@ driveUpload.setOptions({
 
 async function backup() {
     return new Promise((async resolve => {
+        for (const command of config.runCommandsBeforeExecution) {
+            console.log(`Running ${command}`);
+            await execSync(command)
+            console.log(`Finished running ${command}`)
+        }
         const zip = new Zip();
         console.log('Backing up...');
         const date = new Date();

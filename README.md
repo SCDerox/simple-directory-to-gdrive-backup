@@ -29,6 +29,7 @@ You can change these parameters in the `config.json` you created earlier.
 * `folders`: Array of the following objects:
     * `localFolder`: Path to your local folder to back up
     * `zipFolder`: Path to the backuped folder inside the ZIP
+* `runCommandsBeforeExecution`: Array of commands to run before execution (for example `mysqldump`or something)
 
 ## How do I decrypt the encrypted file?
 You can simply use the [cryptify](https://www.npmjs.com/package/cryptify) -cli and remove the `.crypt`-extension from the filename.
